@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Speech Recognition</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header Styles */
+        .header {
+            background-color: #2d3943; /* Dark background color */
+            color: #fff; /* White text color */
+            padding: 20px; /* Padding to add space around the content */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space between logo and language button */
+            align-items: center; /* Center vertically */
+        }
+
+        /* Logo Styles */
+        .logo {
+            margin-left: 20px; /* Adjust margin as needed */
+        }
+
+        /* Language Option Button Styles */
+        .language-button {
+            margin-right: 20px; /* Adjust margin as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+
+    </div>
+    
+    <h1>Speech Recognition</h1>
+
+    <form method="post" action="{% url 'recognize_speech' %}">
+        {% csrf_token %}
+        <input type="submit" value="Start Speaking" />
+    </form>
+
+    <h2>Recognized Text:</h2>
+    <p>{{ result }}</p>
+
+    <div class="recognized-text">
+        <p id="recognized-text-result"></p>
+    </div>
+</body>
+
+</html>
